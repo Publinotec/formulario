@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Principal</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <h2>Menú Principal</h2>
+
+    <!-- Enlaces a las distintas operaciones -->
+    <ul>
+        <li><a href="create.html">Crear Jugador</a></li>
+        <li><a href="update.html">Actualizar Jugador</a></li>
+        <li><a href="delete.html">Eliminar Jugador</a></li>
+        <li><a href="read.html">Consultar Jugadores</a></li>
+    </ul>
+
+    <!-- Opción de Logout -->
+    <p><a href="#" onclick="logout()">Logout</a></p>
+
+    <script>
+        // Función para simular logout (puedes personalizarla según tus necesidades)
+        function logout() {
+            alert('Sesión cerrada. Redireccionando a la página de inicio de sesión.');
+            // Aquí podrías redirigir a la página de inicio de sesión o realizar otras acciones de logout
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

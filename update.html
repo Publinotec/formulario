@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Jugador</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        body {
+         background-image: url('images/cancha1.jpg');
+         background-size: cover;
+         background-repeat: no-repeat;
+         background-position: top;
+       }  h2 {
+            text-align: center;
+            color: antiquewhite;
+        }
+     </style>
+</head>
+<body>
+    <h2>Actualizar Jugador</h2>
+    <form action="api/update.php" method="post">
+        ID: <input type="text" name="id" required><br>
+        Nombre: <input type="text" name="nombre" required><br>
+        Equipo: <input type="text" name="equipo" required><br>
+        Posición: <input type="text" name="posicion" required><br>
+        Categoría: <input type="text" name="categoria" required><br>
+        Edad: <input type="number" name="edad" required><br>
+        Número: <input type="number" name="numero" required><br>
+        <input type="submit" value="Actualizar">
+    </form>
+
+    <!-- Puedes agregar aquí la lógica para mostrar la lista de jugadores, etc. -->
+</body>
+</html>

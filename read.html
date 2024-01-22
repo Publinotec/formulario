@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Jugadores</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+    body {
+            background-image: url('images/cancha1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: top;
+            color: white; /* Cambia el color del texto a blanco */
+            font-family: 'Arial', sans-serif; /* Cambia la fuente del texto */
+            text-align: center; /* Centra el texto en el cuerpo */
+        }
+
+        h2 {
+            color: white; /* Cambia el color del texto a blanco */
+        }
+
+        table {
+            margin: 20px auto; /* Centra la tabla en la página */
+            border-collapse: collapse;
+            width: 80%; /* Ancho de la tabla */
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid white; /* Añade bordes blancos a las celdas */
+        }
+
+        th {
+            background-color: #333; /* Cambia el color de fondo del encabezado */
+        }
+
+        td {
+            background-color: #555; /* Cambia el color de fondo de las celdas de datos */
+        }
+     </style>
+</head>
+<body>
+    <h2>Lista de Jugadores</h2>
+
+    <!-- Aquí se mostrarán dinámicamente los datos de los jugadores -->
+    <table id="jugadores-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Equipo</th>
+                <th>Posición</th>
+                <th>Categoría</th>
+                <th>Edad</th>
+                <th>Número</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Los datos de los jugadores se llenarán dinámicamente aquí -->
+        </tbody>
+    </table>
+
+    <script>
+        // Realizar una solicitud AJAX para obtener datos de la API
+        fetch('api/read.php')
+            .then(response => response.json())
+            .then(data => {
+                // Llenar la tabla con los datos obtenidos
+                const tableBody = document.querySelector('#jugadores-table tbody');
+
+                data.forEach(jugador => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${jugador.id}</td>
+                        <td>${jugador.nombre}</td>
+                        <td>${jugador.equipo}</td>
+                        <td>${jugador.posicion}</td>
+                        <td>${jugador.categoria}</td>
+                        <td>${jugador.edad}</td>
+                        <td>${jugador.numero}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(error => console.error('Error al obtener datos:', error));
+    </script>
+</body>
+</html>
